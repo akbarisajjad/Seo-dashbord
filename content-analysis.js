@@ -12,8 +12,8 @@ document.getElementById("analyzeContentButton").addEventListener("click", () => 
       const resultsHtml = `
         <h3>نتایج تحلیل محتوا</h3>
         <p><strong>تعداد کلمات:</strong> ${data.wordCount}</p>
-        <p><strong>تعداد کلمات کلیدی:</strong> ${data.keywordCount}</p>
-        <p><strong>کلمات کلیدی:</strong> ${data.keywords.join(, )}</p>
+        <p><strong>تعداد تصاویر:</strong> ${data.imageCount}</p>
+        <p><strong>تعداد لینک‌ها:</strong> ${data.linkCount}</p>
       `;
       document.getElementById("contentResults").innerHTML = resultsHtml;
     })
