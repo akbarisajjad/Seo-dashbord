@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>داشبورد سئو حرفه‌ای</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="responsive.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
@@ -42,55 +43,87 @@
         </select>
     </div>
 
-    <div class="stats">
-        <div class="stat-box">
-            <p>6.42K</p>
-            <span>کلیک‌ها</span>
-        </div>
-        <div class="stat-box">
-            <p>193K</p>
-            <span>ایمپرشن‌ها</span>
-        </div>
-        <div class="stat-box">
-            <p>3.3%</p>
-            <span>میانگین CTR</span>
-        </div>
-        <div class="stat-box">
-            <p>26.8</p>
-            <span>میانگین موقعیت</span>
-        </div>
+    <div class="stats" id="statsContainer">
+        <!-- محتوای کارت‌های آماری از فایل JSON بارگذاری می‌شود -->
     </div>
 
     <canvas id="performanceChart"></canvas>
 
     <h3>پرس‌وجوهای برتر</h3>
-    <table>
-        <tr>
-            <th>کلیدواژه</th>
-            <th>کلیک‌ها</th>
-            <th>ایمپرشن‌ها</th>
-            <th>CTR</th>
-            <th>موقعیت</th>
-        </tr>
-        <tr>
-            <td>خرید ریموت کانال تلگرام</td>
-            <td>217</td>
-            <td>493</td>
-            <td>4.2%</td>
-            <td>15</td>
-        </tr>
-        <tr>
-            <td>کانوا پرو رایگان</td>
-            <td>163</td>
-            <td>1,189</td>
-            <td>2.3%</td>
-            <td>22</td>
-        </tr>
+    <table id="queriesTable">
+        <thead>
+            <tr>
+                <th>کلیدواژه</th>
+                <th>کلیک‌ها</th>
+                <th>ایمپرشن‌ها</th>
+                <th>CTR</th>
+                <th>موقعیت</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- محتوای جدول از فایل JSON بارگذاری می‌شود -->
+        </tbody>
     </table>
+
+    <h3>بارگذاری فایل خروجی سرچ کنسول</h3>
+    <input type="file" id="fileInput" accept=".json">
+    <button id="uploadButton">بارگذاری</button>
+
+    <!-- بخش‌های جدید -->
+    <div id="projectManagement">
+        <h3>مدیریت پروژه و وظایف</h3>
+        <!-- محتوای مدیریت پروژه -->
+    </div>
+
+    <div id="keywordResearch">
+        <h3>تحقیق کلمات کلیدی</h3>
+        <!-- محتوای تحقیق کلمات کلیدی -->
+    </div>
+
+    <div id="competitorAnalysis">
+        <h3>تحلیل رقبا</h3>
+        <!-- محتوای تحلیل رقبا -->
+    </div>
+
+    <div id="onPageSEO">
+        <h3>سئو داخلی</h3>
+        <!-- محتوای سئو داخلی -->
+    </div>
+
+    <div id="technicalSEO">
+        <h3>سئو تکنیکال</h3>
+        <!-- محتوای سئو تکنیکال -->
+    </div>
+
+    <div id="backlinkManagement">
+        <h3>لینک‌سازی</h3>
+        <!-- محتوای لینک‌سازی -->
+    </div>
+
+    <div id="analyticsReporting">
+        <h3>تحلیل و گزارش‌گیری</h3>
+        <!-- محتوای تحلیل و گزارش‌گیری -->
+    </div>
+
+    <div id="rankTracking">
+        <h3>مانیتورینگ رتبه</h3>
+        <!-- محتوای مانیتورینگ رتبه -->
+    </div>
+
+    <div id="contentCoordination">
+        <h3>هماهنگی با تیم محتوا</h3>
+        <!-- محتوای هماهنگی با تیم محتوا -->
+    </div>
+
+    <div id="multiProjectManagement">
+        <h3>مدیریت چند پروژه همزمان</h3>
+        <!-- محتوای مدیریت چند پروژه همزمان -->
+    </div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="https://apis.google.com/js/api.js"></script>
 <script src="script.js"></script>
 
 </body>
