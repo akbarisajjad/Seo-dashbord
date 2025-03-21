@@ -1,241 +1,33 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-    <link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#007bff">
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>داشبورد سئو | نسخه پیشرفته</title>
-
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ابزارهای سئو</title>
+  <link rel="stylesheet" href="main.css">
 </head>
-<body class="theme-light">
-
-  <!-- لودر اولیه -->
-  <div id="loader" class="loader active">
-    <span class="loader__spinner"></span>
-  </div>
-
-  <!-- نوار بالایی -->
-  <header class="header">
-    <div class="header__left">
-      <button id="menuToggle" class="header__toggle" aria-label="تغییر منو">
-        <i class="fas fa-bars"></i>
-      </button>
-      <h1 class="header__title">داشبورد سئو</h1>
-    </div>
-    <div class="header__right">
-      <button id="themeToggle" class="header__btn" aria-label="تغییر تم">
-        <i class="fas fa-adjust"></i>
-      </button>
-      <button id="notificationsBtn" class="header__btn" aria-label="نوتیفیکیشن‌ها">
-        <i class="fas fa-bell"></i>
-        <span class="badge" id="notifCount">2</span>
-      </button>
-    </div>
+<body>
+  <header>
+    <h1>ابزارهای سئو</h1>
   </header>
-
-  <!-- منوی کناری -->
-  <aside class="sidebar" id="sidebar">
-    <div class="sidebar__search">
-      <input type="text" id="menuSearch" placeholder="جستجو در منو..." />
-    </div>
-    <ul class="sidebar__menu" id="menuList">
-      <li><a href="#dashboard" data-tab><i class="fas fa-home"></i> داشبورد</a></li>
-      <li><a href="#projectManagement" data-tab><i class="fas fa-tasks"></i> وظایف</a></li>
-      <li><a href="#keywordResearch" data-tab><i class="fas fa-key"></i> کلمات کلیدی</a></li>
-      <li><a href="#competitorAnalysis" data-tab><i class="fas fa-chart-line"></i> رقبا</a></li>
-      <li><a href="#onPageSEO" data-tab><i class="fas fa-file-alt"></i> سئو داخلی</a></li>
-      <li><a href="#analytics" data-tab><i class="fas fa-chart-pie"></i> گزارشات</a></li>
-      <li><a href="#settings" data-tab><i class="fas fa-cog"></i> تنظیمات</a></li>
-<li><a href="content-analysis.html"><i class="fas fa-align-left"></i> تحلیل محتوا</a></li>
-<li><a href="speed-analysis.html"><i class="fas fa-tachometer-alt"></i> تحلیل سرعت بارگذاری</a></li>
-<li><a href="link-analysis.html"><i class="fas fa-link"></i> تحلیل لینک‌ها</a></li>
-<li><a href="image-analysis.html"><i class="fas fa-image"></i> تحلیل تصاویر</a></li>
-<li><a href="speed-analysis.html"><i class="fas fa-tachometer-alt"></i> تحلیل سرعت بارگذاری</a></li>
-<li><a href="link-analysis.html"><i class="fas fa-link"></i> تحلیل لینک‌ها</a></li>
-<li><a href="image-analysis.html"><i class="fas fa-image"></i> تحلیل تصاویر</a></li>
-<li><a href="speed-analysis.html"><i class="fas fa-tachometer-alt"></i> تحلیل سرعت بارگذاری</a></li>
-<li><a href="link-analysis.html"><i class="fas fa-link"></i> تحلیل لینک‌ها</a></li>
-<li><a href="image-analysis.html"><i class="fas fa-image"></i> تحلیل تصاویر</a></li>
-<li><a href="speed-analysis.html"><i class="fas fa-tachometer-alt"></i> تحلیل سرعت بارگذاری</a></li>
-<li><a href="link-analysis.html"><i class="fas fa-link"></i> تحلیل لینک‌ها</a></li>
-<li><a href="image-analysis.html"><i class="fas fa-image"></i> تحلیل تصاویر</a></li>
-<li><a href="backlink-analysis.html"><i class="fas fa-external-link-alt"></i> تحلیل بک‌لینک‌ها</a></li>
-<li><a href="speed-analysis.html"><i class="fas fa-tachometer-alt"></i> تحلیل سرعت بارگذاری</a></li>
-<li><a href="link-analysis.html"><i class="fas fa-link"></i> تحلیل لینک‌ها</a></li>
-<li><a href="image-analysis.html"><i class="fas fa-image"></i> تحلیل تصاویر</a></li>
-<li><a href="backlink-analysis.html"><i class="fas fa-external-link-alt"></i> تحلیل بک‌لینک‌ها</a></li>
-<li><a href="meta-analysis.html"><i class="fas fa-tags"></i> تحلیل متا تگ‌ها</a></li>
-<li><a href="keyword-analysis.html"><i class="fas fa-key"></i> تحلیل کلمات کلیدی</a></li>
-<li><a href="competitor-analysis.html"><i class="fas fa-users"></i> تحلیل رقبا</a></li>
-<li><a href="content-analysis.html"><i class="fas fa-file-alt"></i> تحلیل محتوا</a></li>
-<li><a href="site-structure-analysis.html"><i class="fas fa-sitemap"></i> تحلیل ساختار سایت</a></li>
-<li><a href="mobile-optimization-analysis.html"><i class="fas fa-mobile-alt"></i> بررسی بهینه‌سازی برای موبایل</a></li>
-<li><a href="server-speed-analysis.html"><i class="fas fa-server"></i> تحلیل سرعت سرور</a></li>
-<li><a href="social-media-analysis.html"><i class="fas fa-share-alt"></i> تحلیل شبکه‌های اجتماعی</a></li>
-<li><a href="sitemap-analysis.html"><i class="fas fa-sitemap"></i> بررسی نقشه سایت</a></li>
-<li><a href="security-analysis.html"><i class="fas fa-shield-alt"></i> بررسی امنیت سایت</a></li>
-<li><a href="ux-analysis.html"><i class="fas fa-user-check"></i> بررسی تجربه کاربری (UX)</a></li>
-<li><a href="duplicate-content-analysis.html"><i class="fas fa-clone"></i> تحلیل محتوای تکراری</a></li>
-<li><a href="seo-optimization-check.html"><i class="fas fa-search"></i> بررسی بهینه‌سازی برای موتورهای جستجو (SEO)</a></li>
-<li><a href="js-load-speed-analysis.html"><i class="fas fa-code"></i> تحلیل سرعت لود جاوا اسکریپت</a></li>
-<li><a href="media-content-analysis.html"><i class="fas fa-photo-video"></i> بررسی محتوای رسانه‌ای</a></li>
-<li><a href="image-optimization-analysis.html"><i class="fas fa-image"></i> بررسی بهینه‌سازی تصاویر</a></li>
-<li><a href="url-structure-analysis.html"><i class="fas fa-link"></i> بررسی ساختار URL</a></li>
-<li><a href="html-validation-analysis.html"><i class="fas fa-code"></i> بررسی اعتبارسنجی HTML</a></li>
-<li><a href="css-optimization-analysis.html"><i class="fas fa-file-code"></i> بررسی بهینه‌سازی فایل‌های CSS</a></li>
-<li><a href="cdn-performance-analysis.html"><i class="fas fa-cloud"></i> بررسی عملکرد CDN</a></li>
-<li><a href="font-optimization-analysis.html"><i class="fas fa-font"></i> بررسی بهینه‌سازی فونت‌ها</a></li>
-<li><a href="tracking-code-analysis.html"><i class="fas fa-code"></i> بررسی استفاده از کدهای ردیابی</a></li>
-<li><a href="cache-optimization-analysis.html"><i class="fas fa-database"></i> بررسی بهینه‌سازی کش</a></li>
-<li><a href="ssl-usage-analysis.html"><i class="fas fa-lock"></i> بررسی استفاده از SSL</a></li>
-<li><a href="accessibility-optimization-analysis.html"><i class="fas fa-universal-access"></i> بررسی بهینه‌سازی برای دسترسی‌پذیری</a></li>
-<li><a href="browser-optimization-analysis.html"><i class="fas fa-globe"></i> بررسی بهینه‌سازی برای مرورگرها</a></li>
-<li><a href="frame-usage-analysis.html"><i class="fas fa-frame"></i> بررسی استفاده از فریم‌ها</a></li>
-<li><a href="js-code-analysis.html"><i class="fas fa-code"></i> تحلیل کدهای جاوا اسکریپت</a></li>
-<li><a href="cookie-usage-analysis.html"><i class="fas fa-cookie"></i> بررسی استفاده از کوکی‌ها</a></li>
-<li><a href="local-seo-analysis.html"><i class="fas fa-map-marker-alt"></i> بررسی بهینه‌سازی برای موتورهای جستجوی محلی</a></li>
-<li><a href="page-speed-optimization-analysis.html"><i class="fas fa-tachometer-alt"></i> بررسی بهینه‌سازی برای سرعت صفحه</a></li>
-<li><a href="link-depth-analysis.html"><i class="fas fa-link"></i> تحلیل عمق لینک‌ها</a></li>
-<li><a href="structured-data-analysis.html"><i class="fas fa-database"></i> تحلیل ساختار داده‌ها</a></li>
-<li><a href="content-optimization-analysis.html"><i class="fas fa-file-alt"></i> تحلیل بهینه‌سازی محتوا</a></li>
-<li><a href="cdn-usage-analysis.html"><i class="fas fa-cloud"></i> تحلیل استفاده از CDN</a></li>
-<li><a href="page-speed-analysis.html"><i class="fas fa-tachometer-alt"></i> تحلیل سرعت صفحه</a></li>
-<li><a href="user-experience-analysis.html"><i class="fas fa-user"></i> تحلیل تجربه کاربری</a></li>
-<li><a href="security-analysis.html"><i class="fas fa-shield-alt"></i> تحلیل امنیت</a></li>
-    </ul>
-  </aside>
-
-  <!-- محتوای اصلی -->
-  <main class="main" id="mainContent">
-
-    <!-- داشبورد -->
-    <section id="dashboard" class="tab active">
-      <h2>خوش آمدید</h2>
-      <p>به داشبورد حرفه‌ای سئو خوش آمدید.</p>
-    </section>
-
-    <!-- وظایف -->
-    <section id="projectManagement" class="tab">
-      <h2>مدیریت وظایف</h2>
-      <div id="tasks" class="task__container"></div>
-      <button id="addTaskButton" class="btn">افزودن وظیفه</button>
-    </section>
-
-    <!-- تحقیق کلمات کلیدی -->
-    <section id="keywordResearch" class="tab">
-      <h2>کلمات کلیدی</h2>
-      <input type="text" id="keywordInput" placeholder="کلمه کلیدی..." />
-      <button id="fetchKeywordsButton" class="btn">تحلیل</button>
-      <div id="keywords" class="result"></div>
-    </section>
-
-    <!-- تحلیل رقبا -->
-    <section id="competitorAnalysis" class="tab">
-      <h2>تحلیل رقبا</h2>
-      <input type="text" id="competitorInput" placeholder="دامنه رقیب..." />
-      <button id="fetchCompetitorsButton" class="btn">تحلیل</button>
-      <div id="competitors" class="result"></div>
-    </section>
-
-    <!-- سئو داخلی -->
-    <section id="onPageSEO" class="tab">
-      <h2>تحلیل سئو داخلی</h2>
-      <input type="text" id="urlInput" placeholder="آدرس URL..." />
-      <button id="analyzeOnPageButton" class="btn">تحلیل</button>
-      <div id="onPageResults" class="result"></div>
-    </section>
-
-    <!-- گزارشات -->
-    <section id="analytics" class="tab">
-      <h2>گزارشات</h2>
-      <button id="fetchAnalyticsButton" class="btn">دریافت گزارش</button>
-      <div id="analyticsResults" class="result"></div>
-    </section>
-
-    <!-- تنظیمات -->
-    <section id="settings" class="tab">
-      <h2>تنظیمات</h2>
-      <p>در آینده می‌توانید اطلاعات کاربری و API Key ها را تنظیم کنید.</p>
-    </section>
-  </main>
-
-  <!-- نوتیفیکیشن‌ها -->
-  <div class="notifications" id="notifications">
-    <h4>اعلان‌ها</h4>
+  <nav>
     <ul>
-      <li>بروزرسانی جدید سیستم انجام شد.</li>
-      <li>تحلیل بک‌لینک تکمیل شد.</li>
-<li><a href="content-analysis.html"><i class="fas fa-align-left"></i> تحلیل محتوا</a></li>
-<li><a href="speed-analysis.html"><i class="fas fa-tachometer-alt"></i> تحلیل سرعت بارگذاری</a></li>
-<li><a href="link-analysis.html"><i class="fas fa-link"></i> تحلیل لینک‌ها</a></li>
-<li><a href="image-analysis.html"><i class="fas fa-image"></i> تحلیل تصاویر</a></li>
-<li><a href="speed-analysis.html"><i class="fas fa-tachometer-alt"></i> تحلیل سرعت بارگذاری</a></li>
-<li><a href="link-analysis.html"><i class="fas fa-link"></i> تحلیل لینک‌ها</a></li>
-<li><a href="image-analysis.html"><i class="fas fa-image"></i> تحلیل تصاویر</a></li>
-<li><a href="speed-analysis.html"><i class="fas fa-tachometer-alt"></i> تحلیل سرعت بارگذاری</a></li>
-<li><a href="link-analysis.html"><i class="fas fa-link"></i> تحلیل لینک‌ها</a></li>
-<li><a href="image-analysis.html"><i class="fas fa-image"></i> تحلیل تصاویر</a></li>
-<li><a href="speed-analysis.html"><i class="fas fa-tachometer-alt"></i> تحلیل سرعت بارگذاری</a></li>
-<li><a href="link-analysis.html"><i class="fas fa-link"></i> تحلیل لینک‌ها</a></li>
-<li><a href="image-analysis.html"><i class="fas fa-image"></i> تحلیل تصاویر</a></li>
-<li><a href="backlink-analysis.html"><i class="fas fa-external-link-alt"></i> تحلیل بک‌لینک‌ها</a></li>
-<li><a href="speed-analysis.html"><i class="fas fa-tachometer-alt"></i> تحلیل سرعت بارگذاری</a></li>
-<li><a href="link-analysis.html"><i class="fas fa-link"></i> تحلیل لینک‌ها</a></li>
-<li><a href="image-analysis.html"><i class="fas fa-image"></i> تحلیل تصاویر</a></li>
-<li><a href="backlink-analysis.html"><i class="fas fa-external-link-alt"></i> تحلیل بک‌لینک‌ها</a></li>
-<li><a href="meta-analysis.html"><i class="fas fa-tags"></i> تحلیل متا تگ‌ها</a></li>
-<li><a href="keyword-analysis.html"><i class="fas fa-key"></i> تحلیل کلمات کلیدی</a></li>
-<li><a href="competitor-analysis.html"><i class="fas fa-users"></i> تحلیل رقبا</a></li>
-<li><a href="content-analysis.html"><i class="fas fa-file-alt"></i> تحلیل محتوا</a></li>
-<li><a href="site-structure-analysis.html"><i class="fas fa-sitemap"></i> تحلیل ساختار سایت</a></li>
-<li><a href="mobile-optimization-analysis.html"><i class="fas fa-mobile-alt"></i> بررسی بهینه‌سازی برای موبایل</a></li>
-<li><a href="server-speed-analysis.html"><i class="fas fa-server"></i> تحلیل سرعت سرور</a></li>
-<li><a href="social-media-analysis.html"><i class="fas fa-share-alt"></i> تحلیل شبکه‌های اجتماعی</a></li>
-<li><a href="sitemap-analysis.html"><i class="fas fa-sitemap"></i> بررسی نقشه سایت</a></li>
-<li><a href="security-analysis.html"><i class="fas fa-shield-alt"></i> بررسی امنیت سایت</a></li>
-<li><a href="ux-analysis.html"><i class="fas fa-user-check"></i> بررسی تجربه کاربری (UX)</a></li>
-<li><a href="duplicate-content-analysis.html"><i class="fas fa-clone"></i> تحلیل محتوای تکراری</a></li>
-<li><a href="seo-optimization-check.html"><i class="fas fa-search"></i> بررسی بهینه‌سازی برای موتورهای جستجو (SEO)</a></li>
-<li><a href="js-load-speed-analysis.html"><i class="fas fa-code"></i> تحلیل سرعت لود جاوا اسکریپت</a></li>
-<li><a href="media-content-analysis.html"><i class="fas fa-photo-video"></i> بررسی محتوای رسانه‌ای</a></li>
-<li><a href="image-optimization-analysis.html"><i class="fas fa-image"></i> بررسی بهینه‌سازی تصاویر</a></li>
-<li><a href="url-structure-analysis.html"><i class="fas fa-link"></i> بررسی ساختار URL</a></li>
-<li><a href="html-validation-analysis.html"><i class="fas fa-code"></i> بررسی اعتبارسنجی HTML</a></li>
-<li><a href="css-optimization-analysis.html"><i class="fas fa-file-code"></i> بررسی بهینه‌سازی فایل‌های CSS</a></li>
-<li><a href="cdn-performance-analysis.html"><i class="fas fa-cloud"></i> بررسی عملکرد CDN</a></li>
-<li><a href="font-optimization-analysis.html"><i class="fas fa-font"></i> بررسی بهینه‌سازی فونت‌ها</a></li>
-<li><a href="tracking-code-analysis.html"><i class="fas fa-code"></i> بررسی استفاده از کدهای ردیابی</a></li>
-<li><a href="cache-optimization-analysis.html"><i class="fas fa-database"></i> بررسی بهینه‌سازی کش</a></li>
-<li><a href="ssl-usage-analysis.html"><i class="fas fa-lock"></i> بررسی استفاده از SSL</a></li>
-<li><a href="accessibility-optimization-analysis.html"><i class="fas fa-universal-access"></i> بررسی بهینه‌سازی برای دسترسی‌پذیری</a></li>
-<li><a href="browser-optimization-analysis.html"><i class="fas fa-globe"></i> بررسی بهینه‌سازی برای مرورگرها</a></li>
-<li><a href="frame-usage-analysis.html"><i class="fas fa-frame"></i> بررسی استفاده از فریم‌ها</a></li>
-<li><a href="js-code-analysis.html"><i class="fas fa-code"></i> تحلیل کدهای جاوا اسکریپت</a></li>
-<li><a href="cookie-usage-analysis.html"><i class="fas fa-cookie"></i> بررسی استفاده از کوکی‌ها</a></li>
-<li><a href="local-seo-analysis.html"><i class="fas fa-map-marker-alt"></i> بررسی بهینه‌سازی برای موتورهای جستجوی محلی</a></li>
-<li><a href="page-speed-optimization-analysis.html"><i class="fas fa-tachometer-alt"></i> بررسی بهینه‌سازی برای سرعت صفحه</a></li>
-<li><a href="link-depth-analysis.html"><i class="fas fa-link"></i> تحلیل عمق لینک‌ها</a></li>
-<li><a href="structured-data-analysis.html"><i class="fas fa-database"></i> تحلیل ساختار داده‌ها</a></li>
-<li><a href="content-optimization-analysis.html"><i class="fas fa-file-alt"></i> تحلیل بهینه‌سازی محتوا</a></li>
-<li><a href="cdn-usage-analysis.html"><i class="fas fa-cloud"></i> تحلیل استفاده از CDN</a></li>
-<li><a href="page-speed-analysis.html"><i class="fas fa-tachometer-alt"></i> تحلیل سرعت صفحه</a></li>
-<li><a href="user-experience-analysis.html"><i class="fas fa-user"></i> تحلیل تجربه کاربری</a></li>
-<li><a href="security-analysis.html"><i class="fas fa-shield-alt"></i> تحلیل امنیت</a></li>
+      <li><a href="link-depth-analysis.html">تحلیل عمق لینک‌ها</a></li>
+      <li><a href="structured-data-analysis.html">تحلیل ساختار داده‌ها</a></li>
+      <li><a href="content-optimization-analysis.html">تحلیل بهینه‌سازی محتوا</a></li>
+      <li><a href="cdn-usage-analysis.html">تحلیل استفاده از CDN</a></li>
+      <li><a href="page-speed-analysis.html">تحلیل سرعت صفحه</a></li>
+      <li><a href="user-experience-analysis.html">تحلیل تجربه کاربری</a></li>
+      <li><a href="security-analysis.html">تحلیل امنیت</a></li>
     </ul>
-  </div>
-
-  <!-- اسکریپت -->
-  <script src="app.js"></script>
-  <script>
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/service-worker.js')
-      .then(reg => console.log("SW ثبت شد:", reg))
-      .catch(err => console.error("SW خطا:", err));
-  }
-</script>
+  </nav>
+  <main>
+    <h2>به ابزارهای سئو خوش آمدید</h2>
+    <p>لطفاً یکی از ابزارهای بالا را انتخاب کنید تا تحلیل‌های مورد نظر خود را انجام دهید.</p>
+  </main>
+  <footer>
+    <p>کلیه حقوق محفوظ است.</p>
+  </footer>
+  <script src="main.js"></script>
 </body>
 </html>
