@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>داشبورد سئو حرفه‌ای</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="sidebar" id="sidebar">
+    <h2>سئو</h2>
+    <ul>
+        <li><a href="#"><i class="fas fa-chart-line"></i> تحلیل کلیدواژه‌ها</a></li>
+        <li><a href="#"><i class="fas fa-tachometer-alt"></i> بررسی سرعت سایت</a></li>
+        <li><a href="#"><i class="fas fa-link"></i> تحلیل بک‌لینک‌ها</a></li>
+        <li><a href="#"><i class="fas fa-users"></i> بررسی رقبا</a></li>
+        <li><a href="#"><i class="fas fa-file-alt"></i> گزارش‌های سفارشی</a></li>
+        <li><a href="#"><i class="fas fa-cog"></i> تنظیمات</a></li>
+    </ul>
+    <div class="sidebar-toggle" id="sidebarToggle">
+        <i class="fas fa-bars"></i>
+    </div>
+</div>
+
+<div class="container" id="mainContent">
+    <h2>داشبورد سئو حرفه‌ای</h2>
+
+    <div class="filter-section">
+        <input type="text" id="dateFilter" placeholder="انتخاب بازه زمانی">
+        <select id="deviceFilter">
+            <option value="all">همه دستگاه‌ها</option>
+            <option value="mobile">موبایل</option>
+            <option value="desktop">دسکتاپ</option>
+        </select>
+        <select id="countryFilter">
+            <option value="all">همه کشورها</option>
+            <option value="IR">ایران</option>
+            <option value="US">آمریکا</option>
+        </select>
+    </div>
+
+    <div class="stats">
+        <div class="stat-box">
+            <p>6.42K</p>
+            <span>کلیک‌ها</span>
+        </div>
+        <div class="stat-box">
+            <p>193K</p>
+            <span>ایمپرشن‌ها</span>
+        </div>
+        <div class="stat-box">
+            <p>3.3%</p>
+            <span>میانگین CTR</span>
+        </div>
+        <div class="stat-box">
+            <p>26.8</p>
+            <span>میانگین موقعیت</span>
+        </div>
+    </div>
+
+    <canvas id="performanceChart"></canvas>
+
+    <h3>پرس‌وجوهای برتر</h3>
+    <table>
+        <tr>
+            <th>کلیدواژه</th>
+            <th>کلیک‌ها</th>
+            <th>ایمپرشن‌ها</th>
+            <th>CTR</th>
+            <th>موقعیت</th>
+        </tr>
+        <tr>
+            <td>خرید ریموت کانال تلگرام</td>
+            <td>217</td>
+            <td>493</td>
+            <td>4.2%</td>
+            <td>15</td>
+        </tr>
+        <tr>
+            <td>کانوا پرو رایگان</td>
+            <td>163</td>
+            <td>1,189</td>
+            <td>2.3%</td>
+            <td>22</td>
+        </tr>
+    </table>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
