@@ -125,20 +125,10 @@ th {
     flex: 1;
     min-width: 150px;
 }
-@media (max-width: 768px) {
-    .sidebar {
-        width: 60px;
-    }
-    .sidebar.expanded {
-        width: 200px;
-    }
-    .container {
-        margin-right: 80px;
-    }
-    .container.expanded {
-        margin-right: 220px;
-    }
-    .stat-box {
-        min-width: 100px;
-    }
+#projectManagement, #keywordResearch, #competitorAnalysis, #onPageSEO, #technicalSEO, #backlinkManagement, #analyticsReporting, #rankTracking, #contentCoordination, #multiProjectManagement {
+    padding: 20px;
+    background-color: #fff;
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
