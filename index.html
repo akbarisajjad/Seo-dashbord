@@ -1,130 +1,129 @@
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="fa" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>داشبورد سئو حرفه‌ای</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="responsive.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#007bff">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>داشبورد سئو | نسخه پیشرفته</title>
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
 </head>
-<body>
+<body class="theme-light">
 
-<div class="sidebar" id="sidebar">
-    <h2>سئو</h2>
-    <ul>
-        <li><a href="#"><i class="fas fa-chart-line"></i> تحلیل کلیدواژه‌ها</a></li>
-        <li><a href="#"><i class="fas fa-tachometer-alt"></i> بررسی سرعت سایت</a></li>
-        <li><a href="#"><i class="fas fa-link"></i> تحلیل بک‌لینک‌ها</a></li>
-        <li><a href="#"><i class="fas fa-users"></i> بررسی رقبا</a></li>
-        <li><a href="#"><i class="fas fa-file-alt"></i> گزارش‌های سفارشی</a></li>
-        <li><a href="#"><i class="fas fa-cog"></i> تنظیمات</a></li>
-    </ul>
-    <div class="sidebar-toggle" id="sidebarToggle">
+  <!-- لودر اولیه -->
+  <div id="loader" class="loader active">
+    <span class="loader__spinner"></span>
+  </div>
+
+  <!-- نوار بالایی -->
+  <header class="header">
+    <div class="header__left">
+      <button id="menuToggle" class="header__toggle" aria-label="تغییر منو">
         <i class="fas fa-bars"></i>
+      </button>
+      <h1 class="header__title">داشبورد سئو</h1>
     </div>
-</div>
-
-<div class="container" id="mainContent">
-    <h2>داشبورد سئو حرفه‌ای</h2>
-
-    <div class="filter-section">
-        <input type="text" id="dateFilter" placeholder="انتخاب بازه زمانی">
-        <select id="deviceFilter">
-            <option value="all">همه دستگاه‌ها</option>
-            <option value="mobile">موبایل</option>
-            <option value="desktop">دسکتاپ</option>
-        </select>
-        <select id="countryFilter">
-            <option value="all">همه کشورها</option>
-            <option value="IR">ایران</option>
-            <option value="US">آمریکا</option>
-        </select>
+    <div class="header__right">
+      <button id="themeToggle" class="header__btn" aria-label="تغییر تم">
+        <i class="fas fa-adjust"></i>
+      </button>
+      <button id="notificationsBtn" class="header__btn" aria-label="نوتیفیکیشن‌ها">
+        <i class="fas fa-bell"></i>
+        <span class="badge" id="notifCount">2</span>
+      </button>
     </div>
+  </header>
 
-    <div class="stats" id="statsContainer">
-        <!-- محتوای کارت‌های آماری از فایل JSON بارگذاری می‌شود -->
+  <!-- منوی کناری -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar__search">
+      <input type="text" id="menuSearch" placeholder="جستجو در منو..." />
     </div>
+    <ul class="sidebar__menu" id="menuList">
+      <li><a href="#dashboard" data-tab><i class="fas fa-home"></i> داشبورد</a></li>
+      <li><a href="#projectManagement" data-tab><i class="fas fa-tasks"></i> وظایف</a></li>
+      <li><a href="#keywordResearch" data-tab><i class="fas fa-key"></i> کلمات کلیدی</a></li>
+      <li><a href="#competitorAnalysis" data-tab><i class="fas fa-chart-line"></i> رقبا</a></li>
+      <li><a href="#onPageSEO" data-tab><i class="fas fa-file-alt"></i> سئو داخلی</a></li>
+      <li><a href="#analytics" data-tab><i class="fas fa-chart-pie"></i> گزارشات</a></li>
+      <li><a href="#settings" data-tab><i class="fas fa-cog"></i> تنظیمات</a></li>
+    </ul>
+  </aside>
 
-    <canvas id="performanceChart"></canvas>
+  <!-- محتوای اصلی -->
+  <main class="main" id="mainContent">
 
-    <h3>پرس‌وجوهای برتر</h3>
-    <table id="queriesTable">
-        <thead>
-            <tr>
-                <th>کلیدواژه</th>
-                <th>کلیک‌ها</th>
-                <th>ایمپرشن‌ها</th>
-                <th>CTR</th>
-                <th>موقعیت</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- محتوای جدول از فایل JSON بارگذاری می‌شود -->
-        </tbody>
-    </table>
+    <!-- داشبورد -->
+    <section id="dashboard" class="tab active">
+      <h2>خوش آمدید</h2>
+      <p>به داشبورد حرفه‌ای سئو خوش آمدید.</p>
+    </section>
 
-    <h3>بارگذاری فایل خروجی سرچ کنسول</h3>
-    <input type="file" id="fileInput" accept=".json">
-    <button id="uploadButton">بارگذاری</button>
+    <!-- وظایف -->
+    <section id="projectManagement" class="tab">
+      <h2>مدیریت وظایف</h2>
+      <div id="tasks" class="task__container"></div>
+      <button id="addTaskButton" class="btn">افزودن وظیفه</button>
+    </section>
 
-    <!-- بخش‌های جدید -->
-    <div id="projectManagement">
-        <h3>مدیریت پروژه و وظایف</h3>
-        <!-- محتوای مدیریت پروژه -->
-    </div>
+    <!-- تحقیق کلمات کلیدی -->
+    <section id="keywordResearch" class="tab">
+      <h2>کلمات کلیدی</h2>
+      <input type="text" id="keywordInput" placeholder="کلمه کلیدی..." />
+      <button id="fetchKeywordsButton" class="btn">تحلیل</button>
+      <div id="keywords" class="result"></div>
+    </section>
 
-    <div id="keywordResearch">
-        <h3>تحقیق کلمات کلیدی</h3>
-        <!-- محتوای تحقیق کلمات کلیدی -->
-    </div>
+    <!-- تحلیل رقبا -->
+    <section id="competitorAnalysis" class="tab">
+      <h2>تحلیل رقبا</h2>
+      <input type="text" id="competitorInput" placeholder="دامنه رقیب..." />
+      <button id="fetchCompetitorsButton" class="btn">تحلیل</button>
+      <div id="competitors" class="result"></div>
+    </section>
 
-    <div id="competitorAnalysis">
-        <h3>تحلیل رقبا</h3>
-        <!-- محتوای تحلیل رقبا -->
-    </div>
+    <!-- سئو داخلی -->
+    <section id="onPageSEO" class="tab">
+      <h2>تحلیل سئو داخلی</h2>
+      <input type="text" id="urlInput" placeholder="آدرس URL..." />
+      <button id="analyzeOnPageButton" class="btn">تحلیل</button>
+      <div id="onPageResults" class="result"></div>
+    </section>
 
-    <div id="onPageSEO">
-        <h3>سئو داخلی</h3>
-        <!-- محتوای سئو داخلی -->
-    </div>
+    <!-- گزارشات -->
+    <section id="analytics" class="tab">
+      <h2>گزارشات</h2>
+      <button id="fetchAnalyticsButton" class="btn">دریافت گزارش</button>
+      <div id="analyticsResults" class="result"></div>
+    </section>
 
-    <div id="technicalSEO">
-        <h3>سئو تکنیکال</h3>
-        <!-- محتوای سئو تکنیکال -->
-    </div>
+    <!-- تنظیمات -->
+    <section id="settings" class="tab">
+      <h2>تنظیمات</h2>
+      <p>در آینده می‌توانید اطلاعات کاربری و API Key ها را تنظیم کنید.</p>
+    </section>
+  </main>
 
-    <div id="backlinkManagement">
-        <h3>لینک‌سازی</h3>
-        <!-- محتوای لینک‌سازی -->
-    </div>
+  <!-- نوتیفیکیشن‌ها -->
+  <div class="notifications" id="notifications">
+    <h4>اعلان‌ها</h4>
+    <ul>
+      <li>بروزرسانی جدید سیستم انجام شد.</li>
+      <li>تحلیل بک‌لینک تکمیل شد.</li>
+    </ul>
+  </div>
 
-    <div id="analyticsReporting">
-        <h3>تحلیل و گزارش‌گیری</h3>
-        <!-- محتوای تحلیل و گزارش‌گیری -->
-    </div>
-
-    <div id="rankTracking">
-        <h3>مانیتورینگ رتبه</h3>
-        <!-- محتوای مانیتورینگ رتبه -->
-    </div>
-
-    <div id="contentCoordination">
-        <h3>هماهنگی با تیم محتوا</h3>
-        <!-- محتوای هماهنگی با تیم محتوا -->
-    </div>
-
-    <div id="multiProjectManagement">
-        <h3>مدیریت چند پروژه همزمان</h3>
-        <!-- محتوای مدیریت چند پروژه همزمان -->
-    </div>
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-<script src="https://apis.google.com/js/api.js"></script>
-<script src="script.js"></script>
-
+  <!-- اسکریپت -->
+  <script src="app.js"></script>
+  <script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/service-worker.js')
+      .then(reg => console.log("SW ثبت شد:", reg))
+      .catch(err => console.error("SW خطا:", err));
+  }
+</script>
 </body>
 </html>
