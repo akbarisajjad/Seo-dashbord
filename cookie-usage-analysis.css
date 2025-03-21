@@ -1,0 +1,44 @@
+body {
+  font-family: "Vazirmatn", sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  direction: rtl;
+  text-align: center;
+}
+
+header {
+  background-color: #007bff;
+  color: white;
+  padding: 1rem;
+}
+
+main {
+  margin: 2rem;
+}
+
+.cookie-form {
+  margin-bottom: 2rem;
+}
+
+.cookie-form input {
+  padding: 0.5rem;
+  width: 60%;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+
+.cookie-form button {
+  padding: 0.5rem 1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.cookie-results {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: 6px;
+}
